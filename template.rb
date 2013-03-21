@@ -27,9 +27,7 @@ end
 
 def copy_from_repo(filename, erb: false)
   begin
-    # remove_file filename
-    # repo = 'https://raw.github.com/paulfioravanti/rails_template/master/files/'
-    repo = '/Users/paul/rails_projects/rails_template/files/'
+    repo = 'https://raw.github.com/paulfioravanti/rails_template/master/files/'
     if erb
       template "#{repo}#{filename}", filename
     else
