@@ -28,13 +28,8 @@ end
 def copy_from_repo(filename, erb: false)
   begin
     repo = 'https://raw.github.com/paulfioravanti/rails_template/master/files/'
-    if erb
-      get "#{repo}#{filename}", filename
-      sleep(5)
-      template filename
-    else
-      get "#{repo}#{filename}", filename
-    end
+    get "#{repo}#{filename}", filename
+    template "#{Dir.pwd}/#{filename}", force: true if erb
   rescue OpenURI::HTTPError
     say "Unable to obtain #{filename} from the repo #{repo}"
   end
