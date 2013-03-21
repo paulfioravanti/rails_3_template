@@ -30,6 +30,7 @@ def copy_from_repo(filename, erb: false)
     repo = 'https://raw.github.com/paulfioravanti/rails_template/master/files/'
     if erb
       get "#{repo}#{filename}", filename
+      sleep(2)
       template filename
     else
       get "#{repo}#{filename}", filename
