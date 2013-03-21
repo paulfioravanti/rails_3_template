@@ -1,0 +1,10 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to t('.<%= app_name %>'), root_path, id: "logo"
+      %nav
+        %ul.nav.pull-right
+          %li
+            = link_to root_path do
+              %i.icon-home
+              = t('.home')
