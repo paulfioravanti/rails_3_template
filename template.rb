@@ -4,9 +4,9 @@
 
 ### Utility Methods ###########################################################
 
-def colorize(text, color_code); "#{color_code}#{text}\e[0m"; end
-def yellow(text); colorize(text, "\e[33m"); end
-def cyan(text); colorize(text, "\e[36m"); end
+def colorize(text, color_code); "\e[#{color_code}m#{text}\e[0m"; end
+def yellow(text); colorize(text, 33); end
+def cyan(text); colorize(text, 36); end
 def comment(text); say yellow(text); end
 
 def heading(text)
