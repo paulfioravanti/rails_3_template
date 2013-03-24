@@ -15,6 +15,9 @@ def create_app_locales
 
   comment "# Create shared locale file"
   copy_from_repo 'config/locales/shared/shared.en.yml'
+
+  comment "# Create pages locale file"
+  copy_from_repo 'config/locales/pages/pages.en.yml'
 end
 
 def create_vendor_locales

@@ -1,5 +1,5 @@
 ## Before using this generator:
-# rvm use 2.0.0
+# $ rvm use 2.0.0
 
 # def repo_root; "#{Dir.pwd}/../rails_template"; end
 def repo_root; 'https://raw.github.com/paulfioravanti/rails_template/master'; end
@@ -30,7 +30,7 @@ insert_line_breaks_before_groups
 heading "Configure RVM" #######################################################
 apply recipe("rvm")
 
-run 'rvm get head && rvm reload'
+update_rvm
 create_rvm_bundler_integration
 set_ruby_version_and_app_gemset_in_rvm_env
 
@@ -58,8 +58,9 @@ apply recipe("figaro")
 
 create_secure_app_config
 create_example_app_config
-# Secret config that database config references is now available so
-# database can be generated
+
+# Secret config that database config references is
+# now available so database can be generated
 rake 'db:create:all'
 
 heading "Configure Initializers" ##############################################
@@ -86,20 +87,20 @@ apply recipe("css")
 customize_application_css
 create_custom_css
 
-heading "Customize generated views" #############################################
+heading "Customize generated views" ###########################################
 apply recipe("views")
 
 customize_application_view
 create_partials_for_layout
 
-heading "Generate base routes" ################################################
+heading "Generate initial routes" #############################################
 
 apply recipe("app")
 route "root to: 'pages#home'"
 
 heading "Generate base controller/action" #####################################
 
-generate "controller", "pages home"
+create_resources_for_pages
 clean_up_routes
 
 heading "Create basic helper" #################################################
@@ -108,7 +109,7 @@ comment "# Replace application_helper.rb with custom version"
 remove_file 'app/helpers/application_helper.rb'
 copy_from_repo 'app/helpers/application_helper.rb'
 
-heading "App Clean Up" #################################################
+heading "App Clean Up" ########################################################
 
 clean_up_generated_app_content
 

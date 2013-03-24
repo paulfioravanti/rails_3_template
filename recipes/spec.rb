@@ -1,9 +1,13 @@
 def bootstrap_test_frameworks
   comment "# Configure app for testing (RSpec, Cucumber with Spork and Guard)"
+  comment "# Bootstrap RSpec"
   generate 'rspec:install'
+  comment "# Bootstrap Cucumber"
   generate 'cucumber:install'
+  comment "# Bootstrap Spork"
   run 'spork --bootstrap'
   run 'spork cucumber --bootstrap'
+  comment "# Bootstrap Guard"
   run 'guard init rspec'
   run 'guard init spork'
 end
@@ -39,6 +43,9 @@ def create_initial_specs
 
   comment "# Create spec for \#full_title method"
   copy_from_repo 'spec/helpers/application_helper_spec.rb'
+
+  comment "# Create spec for pages"
+  copy_from_repo 'spec/features/pages_spec.rb', erb: true
 
   comment "# Add i18n.t helper and include ApplicationHelper to utilities.rb"
   copy_from_repo 'spec/support/utilities.rb'
