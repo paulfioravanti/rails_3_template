@@ -1,9 +1,9 @@
 en:
   layouts:
     application:
-      base_title: <%= app_name.humanize %>
+      base_title: <%= app_name.titleize %>
     header:
-      <%= app_name %>: <%= app_name.humanize %>
+      <%= app_name %>: <%= app_name.titleize %>
       home: Home
     footer:
       author: Your name here
