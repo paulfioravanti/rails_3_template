@@ -2,7 +2,7 @@
 # rvm use 2.0.0
 
 # def repo_root; "#{Dir.pwd}/../rails_template"; end
-def repo_root; 'https://raw.github.com/paulfioravanti/rails_template/master/'; end
+def repo_root; 'https://raw.github.com/paulfioravanti/rails_template/master'; end
 
 apply "#{repo_root}/utilities.rb"
 
