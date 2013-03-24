@@ -1,3 +1,8 @@
+def update_rvm
+  comment "# Update and reload rvm"
+  run 'rvm get head && rvm reload'
+end
+
 def create_rvm_bundler_integration
   comment "# Set up RVM Bundler integration to eliminate"
   comment "# the use of `bundle exec` in commands:"
