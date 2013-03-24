@@ -24,16 +24,16 @@ def set_ruby_version_and_app_gemset_in_rvm_env
 
   comment "# Install bundler in #{current_ruby}@#{app_name}"
   if env.system("gem", "install", "bundler")
-    puts "Successfully installed bundler in #{current_ruby}@#{app_name}"
+    puts green("Successfully installed bundler in #{current_ruby}@#{app_name}")
   end
 
   comment "# Install rails in #{current_ruby}@#{app_name}"
   if env.system("gem", "install", "rails")
-    puts "Successfully installed rails in #{current_ruby}@#{app_name}"
+    puts green("Successfully installed rails in #{current_ruby}@#{app_name}")
   end
 
   comment "# Run bundle install in #{current_ruby}@#{app_name}"
   if env.system("bundle", "install", "--binstubs=./bundler_stubs")
-    puts "Successfully ran bundle install for #{current_ruby}@#{app_name}"
+    puts green("Successfully ran bundle install for #{current_ruby}@#{app_name}")
   end
 end
