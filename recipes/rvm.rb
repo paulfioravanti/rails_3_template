@@ -39,6 +39,7 @@ def set_ruby_version_and_app_gemset_in_rvm_env
 
   comment "# Run bundle install in #{current_ruby}@#{app_name}"
   if env.system("bundle", "install", "--binstubs=./bundler_stubs")
-    puts green("Successfully ran bundle install for #{current_ruby}@#{app_name}")
+    puts green("Successfully ran bundle install "\
+               "for #{current_ruby}@#{app_name}")
   end
 end
