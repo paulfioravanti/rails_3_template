@@ -32,7 +32,7 @@ def suppress_helper_and_view_spec_generation
     config.generators do |g|
       g.view_specs false
       g.helper_specs false
-      g.fixture_replacement :factory_girl_rails
+      g.fixture_replacement :factory_girl
     end
   RUBY
   end
