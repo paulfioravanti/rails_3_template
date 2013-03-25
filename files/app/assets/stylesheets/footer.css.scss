@@ -1,15 +1,6 @@
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
   color: $grayLight;
-  a {
-    color: $gray;
-    &:hover {
-      color: $grayDarker;
-    }
-  }
-  small {
-    float: left;
-  }
+  margin-top: 45px;
+  border-top: 1px solid $grayMediumLight;
+  padding-top: 5px;
 }
