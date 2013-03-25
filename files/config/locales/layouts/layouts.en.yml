@@ -7,4 +7,4 @@ en:
       home: Home
       sign_up: Sign Up
     footer:
-      author: Your name here
+      author: Author: <%= ENV['USER'] || ENV['USERNAME'] || "Your name here" %>
