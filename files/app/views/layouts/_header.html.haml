@@ -1,7 +1,8 @@
-%header.navbar.navbar-fixed-top.navbar-inverse
+%header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to t('.<%= app_name %>'), root_path, id: "logo"
+      .brand
+        = link_to t('.<%= app_name %>'), root_path
       %nav
         %ul.nav.pull-right
           %li
