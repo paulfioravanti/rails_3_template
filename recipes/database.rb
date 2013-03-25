@@ -3,3 +3,8 @@ def create_secure_database_config
   remove_file 'config/database.yml'
   copy_from_repo 'config/database.yml'
 end
+
+def create_databases
+  rake 'db:create', env: 'development'
+  rake 'db:create', env: 'test'
+end

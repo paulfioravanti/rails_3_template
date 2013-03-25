@@ -1,3 +1,3 @@
 en:
   flash:
-    welcome: Welcome to the <%= app_name.titleize %>!
+    successful_sign_up: Sucessfully signed up!

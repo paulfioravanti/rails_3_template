@@ -50,21 +50,17 @@ sub_heading "Development"
 
 no_asset_debug
 
-heading "Config/create pg database" ############################################
-apply recipe("database")
-
-create_secure_database_config
-
 heading "Figaro config" ########################################################
 apply recipe("figaro")
 
 create_secure_app_config
 create_example_app_config
 
-# Secret config that database config references is
-# now available so database can be generated
-rake 'db:create', env: 'development'
-rake 'db:create', env: 'test'
+heading "Config/create pg database" ############################################
+apply recipe("database")
+
+create_secure_database_config
+create_databases
 
 heading "Configure Initializers" ###############################################
 apply recipe("initializers")
