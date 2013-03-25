@@ -3,7 +3,7 @@ def create_rails_locales
   copy_from_repo 'config/locales/activerecord/activerecord.en.yml'
 
   comment "# Create flash locale file"
-  copy_from_repo 'config/locales/flash/flash.en.yml'
+  copy_from_repo 'config/locales/flash/flash.en.yml', erb: true
 end
 
 def create_app_locales
