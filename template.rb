@@ -32,7 +32,7 @@ insert_line_breaks_before_groups
 heading "Configure RVM" ########################################################
 apply recipe("rvm")
 
-# update_rvm
+update_rvm
 create_rvm_bundler_integration
 set_ruby_version_and_app_gemset_in_rvm_env
 
