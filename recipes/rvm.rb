@@ -1,6 +1,6 @@
 def update_rvm
-  comment "# Update and reload rvm"
-  run 'rvm get head && rvm reload'
+  comment "# Update rvm"
+  run 'rvm get stable && rvm reload'
 end
 
 def create_rvm_bundler_integration
@@ -30,11 +30,6 @@ def set_ruby_version_and_app_gemset_in_rvm_env
   comment "# Install bundler in #{current_ruby}@#{app_name}"
   if env.system("gem", "install", "bundler")
     puts green("Successfully installed bundler in #{current_ruby}@#{app_name}")
-  end
-
-  comment "# Install rails in #{current_ruby}@#{app_name}"
-  if env.system("gem", "install", "rails")
-    puts green("Successfully installed rails in #{current_ruby}@#{app_name}")
   end
 
   comment "# Run bundle install in #{current_ruby}@#{app_name}"
