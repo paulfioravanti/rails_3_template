@@ -32,7 +32,7 @@ insert_line_breaks_before_groups
 heading "Configure RVM" ########################################################
 apply recipe("rvm")
 
-update_rvm
+# update_rvm
 create_rvm_bundler_integration
 set_ruby_version_and_app_gemset_in_rvm_env
 
@@ -60,6 +60,7 @@ heading "Config/create pg database" ############################################
 apply recipe("database")
 
 create_secure_database_config
+destroy_any_previous_databases
 create_databases
 
 heading "Configure Initializers" ###############################################
@@ -85,6 +86,15 @@ require_custom_javascript
 apply recipe("css")
 customize_application_css
 create_custom_css
+##### Custom user css ???
+
+heading "Create base models" ###################################################
+apply recipe("models")
+
+generate_model_migrations
+replace_migration_content
+migrate_databases
+create_model_classes
 
 heading "Customize generated views" ############################################
 apply recipe("views")
@@ -111,6 +121,7 @@ copy_from_repo 'app/helpers/application_helper.rb'
 heading "App Clean Up" #########################################################
 
 clean_up_generated_app_content
+annotate_app
 
 heading "Setup Testing Frameworks" #############################################
 apply recipe("spec")
@@ -123,16 +134,16 @@ customize_guard_file
 heading "Create initial basic specs" ###########################################
 
 create_initial_specs
+create_initial_factories
 
 heading "Git-related config" ###################################################
 apply recipe("git")
 
-create_git_ignore
-git :init
+create_git_ignore_file
+create_git_repo
 prevent_whitespaced_commits
 
 heading "Run tests, commit" ####################################################
 
-run 'rspec spec/'
-git add: "."
-git commit: %Q{ -m 'Initial commit' }
+run_tests
+add_and_commit_to_repo

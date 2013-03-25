@@ -41,12 +41,25 @@ def create_initial_specs
   comment "# Create home page routing spec"
   copy_from_repo 'spec/routing/routing_spec.rb'
 
-  comment "# Create spec for \#full_title method"
+  comment "# Create spec for #full_title method"
   copy_from_repo 'spec/helpers/application_helper_spec.rb'
 
   comment "# Create spec for pages"
   copy_from_repo 'spec/features/pages_spec.rb', erb: true
 
+  comment "# Create spec for Users"
+  copy_from_repo 'spec/models/user_spec.rb'
+
   comment "# Add i18n.t helper and include ApplicationHelper to utilities.rb"
   copy_from_repo 'spec/support/utilities.rb'
+end
+
+def create_initial_factories
+  comment "# Create users factory"
+  copy_from_repo 'spec/factories/users.rb'
+end
+
+def run_tests
+  comment "# Run tests"
+  run 'rspec spec/'
 end

@@ -59,3 +59,9 @@ def modern_hash_syntax(filename)
   comment "# Change hashes to modern syntax"
   gsub_file filename, /([^\w^:]):([\w\d_]+)\s*=>/, '\1\2:'
 end
+
+def annotate_app
+  comment "# Annotate classes and routes"
+  run 'annotate -i -p top'
+  run 'annotate -r'
+end
