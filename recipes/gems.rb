@@ -7,7 +7,7 @@ def universal_gems
   gem 'rails-timeago', '~> 2.2.0'
   # Markdown
   gem 'rdiscount', '~> 2.0.7.1'
-  # For creating bcrypt encrypted hashes for user passwords
+  # For creating encrypted hashes in has_secure_password
   gem 'bcrypt-ruby', '~> 3.0.1'
 
   say "\n"
