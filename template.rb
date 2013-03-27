@@ -114,9 +114,7 @@ clean_up_routes
 
 heading "Create basic helper" ##################################################
 
-comment "# Replace application_helper.rb with custom version"
-remove_file 'app/helpers/application_helper.rb'
-copy_from_repo 'app/helpers/application_helper.rb'
+replace_application_helper
 
 heading "App Clean Up" #########################################################
 

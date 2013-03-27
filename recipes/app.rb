@@ -8,6 +8,12 @@ def clean_up_routes
             /^\s+get \"pages\/home\"\n+/, ''
 end
 
+def replace_application_helper
+  comment "# Replace application_helper.rb with custom version"
+  remove_file 'app/helpers/application_helper.rb'
+  copy_from_repo 'app/helpers/application_helper.rb'
+end
+
 def create_resources_for_pages
   comment "# Create pages controller"
   copy_from_repo 'app/controllers/pages_controller.rb'
