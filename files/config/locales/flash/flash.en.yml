@@ -1,3 +1,6 @@
 en:
   flash:
-    successful_sign_up: Sucessfully signed up!
+    invalid_credentials: Invalid email/password combination
+    successful_registration: Registration successful!
+    successful_signin: Sign in successful!
+    successful_signout: Sign out successful!

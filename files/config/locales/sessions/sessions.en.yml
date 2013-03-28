@@ -1,0 +1,8 @@
+en:
+  sessions:
+    new:
+      email: Email
+      new_user: New User?
+      password: Password
+      signin: Sign In
+      register: Register

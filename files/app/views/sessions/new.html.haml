@@ -1,0 +1,18 @@
+- provide(:title, t('.signin') )
+.text-center
+  %h1= t('.signin')
+
+.row
+  .span6.offset3
+    = form_tag session_path do
+      = label_tag :email, t('.email')
+      = text_field_tag :email
+
+      = label_tag :password, t('.password')
+      = password_field_tag :password
+
+      = submit_tag t('.signin'), class: "btn btn-large btn-primary"
+
+    %p
+      = t('.new_user')
+      = link_to t('.register'), register_path

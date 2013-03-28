@@ -1,0 +1,7 @@
+= provide(:title, t('.register'))
+.text-center
+  %h1= t('.register')
+.row
+  .span6.offset3
+    = simple_form_for(@user, html: {class: 'form-vertical' }) do |f|
+      = render 'fields', f: f, button_label: t('.create_account')

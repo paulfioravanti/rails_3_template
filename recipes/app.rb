@@ -1,28 +1,51 @@
-def clean_up_routes
-  remove_comments 'config/routes.rb'
-  comment "# Remove generated route spaces"
-  gsub_file 'config/routes.rb', /\'pages\#home\'\n+/, "'pages#home'\n"
-
-  comment "# Remove extraneous generated route entry"
-  gsub_file 'config/routes.rb',
-            /^\s+get \"pages\/home\"\n+/, ''
+def replace_routes
+  comment "# Replace routes.rb with custom version"
+  remove_file 'config/routes.rb'
+  copy_from_repo 'config/routes.rb', erb: true
 end
 
-def replace_application_helper
+def create_shared_resources
+  comment "# Replace application_controller.rb with custom version"
+  remove_file 'app/controllers/application_controller.rb'
+  copy_from_repo 'app/controllers/application_controller.rb'
+
   comment "# Replace application_helper.rb with custom version"
   remove_file 'app/helpers/application_helper.rb'
   copy_from_repo 'app/helpers/application_helper.rb'
+
+  comment "# Create shared error messages partial"
+  copy_from_repo 'app/views/shared/_error_messages.html.haml'
 end
 
-def create_resources_for_pages
+def create_page_resources
   comment "# Create pages controller"
   copy_from_repo 'app/controllers/pages_controller.rb'
   comment "# Create home view"
   copy_from_repo 'app/views/pages/home.html.haml'
+  comment "# Create signed in home view"
+  copy_from_repo 'app/views/pages/_home_signed_in.html.haml'
+  comment "# Create not signed in home view"
+  copy_from_repo 'app/views/pages/_home_not_signed_in.html.haml'
   comment "# Create generic page partial"
   copy_from_repo 'app/views/pages/_page.html.haml'
   comment "# Create home Markdown file"
   copy_from_repo 'config/locales/pages/home/home.en.md', erb: true
+end
+
+def create_session_resources
+  comment "# Create sessions controller"
+  copy_from_repo 'app/controllers/sessions_controller.rb'
+  comment "# Create signin view"
+  copy_from_repo 'app/views/sessions/new.html.haml'
+end
+
+def create_user_resources
+  comment "# Create users controller"
+  copy_from_repo 'app/controllers/users_controller.rb'
+  comment "# Create register user view"
+  copy_from_repo 'app/views/users/new.html.haml'
+  comment "# Create user form partial"
+  copy_from_repo 'app/views/users/_fields.html.haml'
 end
 
 def clean_up_generated_app_content

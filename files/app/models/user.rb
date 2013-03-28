@@ -9,4 +9,16 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  before_save :create_authentication_token
+
+  def self.authenticate(email, password)
+    find_by_email(email).try(:authenticate, password)
+  end
+
+  private
+
+    def create_authentication_token
+      self.authentication_token = SecureRandom.urlsafe_base64
+    end
 end

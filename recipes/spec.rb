@@ -7,7 +7,7 @@ def bootstrap_test_frameworks
   comment "# Bootstrap Spork"
   run 'spork --bootstrap'
   run 'spork cucumber --bootstrap'
-  comment "# Bootstrap Guard"
+  comment "# Bootstrap Guard with Rspec and Spork"
   run 'guard init rspec'
   run 'guard init spork'
 end
@@ -41,16 +41,24 @@ def create_initial_specs
   comment "# Create home page routing spec"
   copy_from_repo 'spec/routing/routing_spec.rb'
 
-  comment "# Create spec for #full_title method"
+  comment "# Create controller specs"
+  copy_from_repo 'spec/controllers/application_controller_spec.rb'
+
+  comment "# Create helper specs"
   copy_from_repo 'spec/helpers/application_helper_spec.rb'
 
-  comment "# Create spec for pages"
+  comment "# Create feature specs"
   copy_from_repo 'spec/features/pages_spec.rb', erb: true
+  copy_from_repo 'spec/features/authentication_pages_spec.rb'
+  copy_from_repo 'spec/features/user_pages_spec.rb'
 
-  comment "# Create spec for Users"
+  comment "# Create request specs"
+  copy_from_repo 'spec/requests/authentication_requests_spec.rb'
+
+  comment "# Create model specs"
   copy_from_repo 'spec/models/user_spec.rb'
 
-  comment "# Add i18n.t helper and include ApplicationHelper to utilities.rb"
+  comment "# Create spec utilities"
   copy_from_repo 'spec/support/utilities.rb'
 end
 

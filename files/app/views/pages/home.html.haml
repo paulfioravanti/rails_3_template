@@ -1,3 +1,5 @@
-.center.hero-unit
-  = render 'page', title: nil, page: @page
+- if signed_in?
+  = render 'home_signed_in'
+- else
+  = render 'home_not_signed_in', page: @page
 = link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/'

@@ -9,3 +9,17 @@
             = link_to root_path do
               %i.icon-home
               = t('.home')
+          - if signed_in?
+            %li
+              = link_to signout_path, method: :delete do
+                %i.icon-signout
+                = t('.signout')
+          - else
+            %li
+              = link_to signin_path do
+                %i.icon-signin
+                = t('.signin')
+            %li
+              = link_to register_path do
+                %i.icon-group
+                = t('.register')

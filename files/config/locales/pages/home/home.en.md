@@ -1,4 +1,4 @@
-Welcome to your <%= app_name.titleize %>!
+Welcome to the <%= app_name.titleize %>!
 =======================
 
 This is the static content for the Home Page.

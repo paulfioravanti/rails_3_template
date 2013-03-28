@@ -8,7 +8,7 @@ end
 
 apply "#{repo_root}/utilities.rb"
 
-heading "Define gems" ##########################################################
+heading "Define Gems" ##########################################################
 apply recipe("gems")
 
 universal_gems
@@ -36,7 +36,7 @@ update_rvm
 create_rvm_bundler_integration
 set_ruby_version_and_app_gemset_in_rvm_env
 
-heading "Edit Environment files" ###############################################
+heading "Edit Environment Files" ###############################################
 apply recipe("environment")
 
 sub_heading "Application"
@@ -50,13 +50,13 @@ sub_heading "Development"
 
 no_asset_debug
 
-heading "Figaro config" ########################################################
+heading "Figaro Config" ########################################################
 apply recipe("figaro")
 
 create_secure_app_config
 create_example_app_config
 
-heading "Config/create pg database" ############################################
+heading "Config/create Postgres Database" ######################################
 apply recipe("database")
 
 create_secure_database_config
@@ -71,7 +71,7 @@ insert_figaro_config_into_secret_token
 simple_form_initializer
 i18n_js_initializer
 
-heading "Configure locale structure" ###########################################
+heading "Configure Locale Structure" ###########################################
 apply recipe("locales")
 
 create_rails_locales
@@ -86,9 +86,8 @@ require_custom_javascript
 apply recipe("css")
 customize_application_css
 create_custom_css
-##### Custom user css ???
 
-heading "Create base models" ###################################################
+heading "Create Base Models" ###################################################
 apply recipe("models")
 
 generate_model_migrations
@@ -96,25 +95,25 @@ replace_migration_content
 migrate_databases
 create_model_classes
 
-heading "Customize generated views" ############################################
+seed_databases
+
+heading "Customize Generated Views" ############################################
 apply recipe("views")
 
 customize_application_view
 create_partials_for_layout
 
-heading "Generate initial routes" ##############################################
-
+heading "Generate Initial Routes" ##############################################
 apply recipe("app")
-route "root to: 'pages#home'"
 
-heading "Generate base controller/action" ######################################
+replace_routes
 
-create_resources_for_pages
-clean_up_routes
+heading "Generate App Resources" ###############################################
 
-heading "Create basic helper" ##################################################
-
-replace_application_helper
+create_shared_resources
+create_page_resources
+create_session_resources
+create_user_resources
 
 heading "App Clean Up" #########################################################
 

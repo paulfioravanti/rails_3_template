@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_filter :localized_page
 
   def home
+    localized_page unless signed_in?
   end
 
   protected

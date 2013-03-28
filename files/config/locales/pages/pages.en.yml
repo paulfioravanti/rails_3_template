@@ -1,3 +1,4 @@
 en:
   pages:
-    home:
+    home_signed_in:
+      heading: ! 'Signed in to <%= app_name.titleize %>!'

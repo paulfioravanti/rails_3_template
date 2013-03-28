@@ -17,7 +17,13 @@ def create_app_locales
   copy_from_repo 'config/locales/shared/shared.en.yml'
 
   comment "# Create pages locale file"
-  copy_from_repo 'config/locales/pages/pages.en.yml'
+  copy_from_repo 'config/locales/pages/pages.en.yml', erb: true
+
+  comment "# Create sessions locale file"
+  copy_from_repo 'config/locales/sessions/sessions.en.yml'
+
+  comment "# Create users locale file"
+  copy_from_repo 'config/locales/users/users.en.yml'
 end
 
 def create_vendor_locales
