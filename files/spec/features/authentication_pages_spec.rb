@@ -45,15 +45,21 @@ describe "Authentication on UI" do
     context "with valid information" do
       let(:signin) { t('layouts.header.signin') }
       let(:heading) { t('pages.home_signed_in.heading') }
+      let(:successful_signin) { t('flash.successful_signin') }
 
       before { sign_in_through_ui(user) }
 
+      it { should have_alert_message('success', successful_signin) }
       its(:source) { should have_selector('h1', text: heading) }
       it { should have_link(signout, href: signout_path) }
       it { should_not have_link(signin, href: signin_path) }
 
       context "followed by signout" do
+        let(:successful_signout) { t('flash.successful_signout') }
+
         before { click_link signout }
+
+        it { should have_alert_message('success', successful_signout) }
         it { should have_link(signin) }
       end
     end

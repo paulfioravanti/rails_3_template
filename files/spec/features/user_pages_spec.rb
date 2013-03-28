@@ -57,8 +57,8 @@ describe "User Pages on UI" do
         before { click_button submit }
 
         # Redirect from registration page to signed in home page
-        its(:source) { should have_selector('h1', text: heading) }
         it { should have_alert_message('success', successful_registration) }
+        its(:source) { should have_selector('h1', text: heading) }
         it { should have_link signout }
       end
 
