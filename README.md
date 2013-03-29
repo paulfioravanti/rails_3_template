@@ -2,7 +2,10 @@
 
 This Rails template was written to make the process of starting a very basic Rails app easier, and make my personal Rails app bootstrap instruction guide obsolete.  I disliked having to spend the time to repeat the same old steps manually every time I began a new application, so this is my attempt at automating that process.  
 
-It's influenced heavily by, and owes a debt of gratitude to, the [Rails Apps Composer](https://github.com/RailsApps/rails_apps_composer) and the [Sample App](https://github.com/railstutorial/sample_app) of the [Rails Tutorial](http://ruby.railstutorial.org/).
+It's influenced heavily by, and owes a debt of gratitude to: 
+- [Rails Apps Composer](https://github.com/RailsApps/rails_apps_composer)
+- [Sample App](https://github.com/railstutorial/sample_app) of the [Rails Tutorial](http://ruby.railstutorial.org/)
+- [Railscasts](http://railscasts.com/), in particular episodes [#250](http://railscasts.com/episodes/250-authentication-from-scratch-revised) and [#274](http://railscasts.com/episodes/274-remember-me-reset-password)
 
 The template reflects my Rails preferences in the following ways:
 

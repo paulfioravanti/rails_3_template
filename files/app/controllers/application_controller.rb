@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     helper_method :sign_in
 
     def remember_me
-      (params[:session] && params[:session][:remember_me] == "true") ||
+      params[:session].try(:[], :remember_me) == "true" ||
         params[:remember_me] == "true"
     end
 
