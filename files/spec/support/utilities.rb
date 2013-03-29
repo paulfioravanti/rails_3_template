@@ -37,7 +37,6 @@ def sign_in_request(user, remember_me: "true")
       remember_me: remember_me
     }
   )
-  cookies[:authentication_token] = user.authentication_token
 end
 
 def invalid_email_addresses

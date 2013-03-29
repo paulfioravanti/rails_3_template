@@ -23,7 +23,7 @@ describe "Authentication Requests" do
       end
     end
 
-    describe "cookie handling" do
+    describe "cookies" do
       let(:user) { create(:user) }
 
       subject { response.headers["Set-Cookie"] }
@@ -34,7 +34,7 @@ describe "Authentication Requests" do
       end
 
       context "when remember me is not set" do
-        before { sign_in_request(user, remember_me: false) }
+        before { sign_in_request(user, remember_me: "false") }
         it { should_not =~ %r(expires) }
       end
     end
