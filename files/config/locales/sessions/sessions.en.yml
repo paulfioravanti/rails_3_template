@@ -6,3 +6,4 @@ en:
       password: Password
       signin: Sign In
       register: Register
+      remember_me: Remember me

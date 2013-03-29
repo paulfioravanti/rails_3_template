@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :prevent_signed_in_user_registration, only: [:new, :create]
+  before_filter :deny, only: [:new, :create]
 
   def new
     @user = User.new
@@ -23,9 +23,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-
-    def prevent_signed_in_user_registration
-      redirect_to root_url if signed_in?
-    end
-
 end

@@ -22,6 +22,22 @@ describe "Authentication Requests" do
         it { should redirect_to(root_url) }
       end
     end
+
+    describe "cookie handling" do
+      let(:user) { create(:user) }
+
+      subject { response.headers["Set-Cookie"] }
+
+      context "when remember me is set" do
+        before { sign_in_request(user) }
+        it { should =~ %r(.+expires.+#{20.years.from_now.year}) }
+      end
+
+      context "when remember me is not set" do
+        before { sign_in_request(user, remember_me: false) }
+        it { should_not =~ %r(expires) }
+      end
+    end
   end
 
 end

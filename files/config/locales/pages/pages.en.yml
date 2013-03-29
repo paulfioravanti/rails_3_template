@@ -1,4 +1,4 @@
 en:
   pages:
     home_signed_in:
-      heading: ! 'Dynamic Home for <%= app_name.titleize %>'
+      heading: ! 'Logged in Home for <%= app_name.titleize %>'

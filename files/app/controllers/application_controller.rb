@@ -9,11 +9,32 @@ class ApplicationController < ActionController::Base
 
   private
 
+    def deny
+      redirect_to root_url, alert: t('.not_authorized') if signed_in?
+    end
+
+    # def authorize
+    #   redirect_to root_url, alert: t('.not_authorized') unless signed_in?
+    # end
+
+    # A cookie that does not have an expiry will automatically be expired by
+    # the browser when browser's session is finished.
+    # cookies.permanent sets the expiry to 20 years
+    # Booleans seem to get passed from forms as strings
     def sign_in(user)
-      cookies.permanent[:authentication_token] = user.authentication_token
+      if remember_me
+        cookies.permanent[:authentication_token] = user.authentication_token
+      else
+        cookies[:authentication_token] = user.authentication_token
+      end
       self.current_user = user
     end
     helper_method :sign_in
+
+    def remember_me
+      (params[:session] && params[:session][:remember_me] == "true") ||
+        params[:remember_me] == "true"
+    end
 
     def signed_in?
       !current_user.nil?

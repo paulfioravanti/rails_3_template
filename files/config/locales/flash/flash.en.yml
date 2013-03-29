@@ -4,3 +4,4 @@ en:
     successful_registration: Registration successful!
     successful_signin: Sign in successful!
     successful_signout: Sign out successful!
+    not_authorized: Not Authorized

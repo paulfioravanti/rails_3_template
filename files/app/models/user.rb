@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  before_save :create_authentication_token
+  before_create :generate_authentication_token
 
   def self.authenticate(email, password)
     find_by_email(email).try(:authenticate, password)
@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
 
   private
 
-    def create_authentication_token
-      self.authentication_token = SecureRandom.urlsafe_base64
+    def generate_authentication_token
+      begin
+        self.authentication_token = SecureRandom.urlsafe_base64
+      end while User.exists?(authentication_token: self.authentication_token)
     end
 end

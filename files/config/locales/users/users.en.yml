@@ -3,3 +3,7 @@ en:
     new:
       create_account: Create my account
       register: Register
+    fields:
+      password: Enter password
+      password_confirmation: Confirm password
+      remember_me: Remember me
