@@ -1,9 +1,19 @@
 ## Before using this generator:
 # $ rvm use 2.0.0
 
-# def repo_root; "#{Dir.pwd}/../rails_template"; end
-def repo_root
-  'https://raw.github.com/paulfioravanti/rails_template/master'
+local_template = "rails_template/template.rb"
+remote_template = "https://raw.github.com/paulfioravanti/"\
+                  "rails_template/master/template.rb"
+
+# Determine which template to use based on command line -m argument
+if ARGV[2] == remote_template
+  define_singleton_method :repo_root do
+    'https://raw.github.com/paulfioravanti/rails_template/master'
+  end
+elsif ARGV[2] == local_template
+  define_singleton_method :repo_root do
+    "#{Dir.pwd}/../rails_template"
+  end
 end
 
 apply "#{repo_root}/utilities.rb"
