@@ -8,22 +8,22 @@ def customize_application_view
 
   comment "# Change html header to html5"
   gsub_file 'app/views/layouts/application.html.haml',
-            /\!\!\!/, '!!! 5'
+            %r(\!\!\!), '!!! 5'
 
   comment "# Yield title to helper method"
   gsub_file 'app/views/layouts/application.html.haml',
-            /\%title\s#{app_name.camelize}/, '%title= full_title(yield(:title))'
+            %r(\%title\s#{app_name.camelize}), '%title= full_title(yield(:title))'
 
   comment "# Add controller/action properties to body tag for any custom CSS"
   insert_into_file 'app/views/layouts/application.html.haml',
                    "{ class: \"\#\{controller_name\}\-controller "\
                    "\#\{action_name\}\-action\" }",
-                   after: /\%body/
+                   after: %r(\%body)
 
   comment "# Insert IE handling code for HTML5 and code for i18n_js, timeago gems"
   comment "# into application.html.haml"
   insert_into_file 'app/views/layouts/application.html.haml',
-                   after: /csrf_meta_tags\n/ do <<-RUBY
+                   after: %r(csrf_meta_tags\n) do <<-RUBY
     = timeago_script_tag
     = render 'layouts/shim'
     = render 'layouts/i18n_js'
@@ -32,7 +32,7 @@ RUBY
 
   comment "# Insert call to header, messages partials under yield"
   insert_into_file 'app/views/layouts/application.html.haml',
-                    before: /^\s+\=\syield/ do <<-RUBY
+                    before: %r(^\s+\=\syield) do <<-RUBY
     = render 'layouts/header'
     .container
       = render 'layouts/messages'
@@ -42,11 +42,11 @@ RUBY
   comment "# Insert call to footer partial under yield"
   insert_into_file 'app/views/layouts/application.html.haml',
                    "      = render 'layouts/footer'",
-                   after: /^\s+\=\syield\n/
+                   after: %r(^\s+\=\syield\n)
 
   comment "# Move yield call to within bootstrap .container class"
   gsub_file 'app/views/layouts/application.html.haml',
-            /^\s+\=\syield\n/, "      = yield\n"
+            %r(^\s+\=\syield\n), "      = yield\n"
 end
 
 def create_partials_for_layout

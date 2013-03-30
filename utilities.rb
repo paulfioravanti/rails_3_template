@@ -42,22 +42,22 @@ end
 
 def change_double_to_single_quotes(filename)
   comment "# Change double to single quotes"
-  gsub_file filename, /"/, "'"
+  gsub_file filename, %r("), "'"
 end
 
 def remove_comments(filename)
   comment "# Remove generated comments"
-  gsub_file filename, /^\s{2}?\#.*\n/, ''
+  gsub_file filename, %r(^\s{2}?\#.*\n), ''
 end
 
 def remove_blank_lines(filename)
   comment "# Remove excess blank lines"
-  gsub_file filename, /(?m)^(?<!\w\n$)\n(?!\w+)/, ''
+  gsub_file filename, %r((?m)^(?<!\w\n$)\n(?!\w+)), ''
 end
 
 def modern_hash_syntax(filename)
   comment "# Change hashes to modern syntax"
-  gsub_file filename, /([^\w^:]):([\w\d_]+)\s*=>/, '\1\2:'
+  gsub_file filename, %r(([^\w^:]):([\w\d_]+)\s*=>), '\1\2:'
 end
 
 def annotate_app

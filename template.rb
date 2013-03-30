@@ -1,10 +1,10 @@
 ## Before using this generator:
 # $ rvm use 2.0.0
 
-# def repo_root; "#{Dir.pwd}/../rails_template"; end
-def repo_root
-  'https://raw.github.com/paulfioravanti/rails_template/master'
-end
+def repo_root; "#{Dir.pwd}/../rails_template"; end
+# def repo_root
+#   'https://raw.github.com/paulfioravanti/rails_template/master'
+# end
 
 apply "#{repo_root}/utilities.rb"
 
@@ -32,7 +32,7 @@ insert_line_breaks_before_groups
 heading "Configure RVM" ########################################################
 apply recipe("rvm")
 
-update_rvm
+# update_rvm
 create_rvm_bundler_integration
 set_ruby_version_and_app_gemset_in_rvm_env
 

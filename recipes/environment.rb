@@ -1,7 +1,7 @@
 def split_out_locale_files
   comment "# Add support for split out locale files under config/locales/*"
   application "config.i18n.load_path += "\
-              "Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]"
+                "Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]"
 end
 
 def remove_test_unit_from_railties
@@ -21,9 +21,9 @@ def set_lazy_asset_precompilation
   comment "# Precompile assets lazily in production.  Works with Heroku if you have"
   comment "# $ heroku labs:enable user-env-compile -a myapp"
   comment_lines 'config/application.rb',
-    /Bundler.require\(\*Rails\.groups\(\:assets \=\> \%w\(development test\)\)\)/
+    %r(Bundler.require\(\*Rails\.groups\(\:assets \=\> \%w\(development test\)\)\))
   uncomment_lines 'config/application.rb',
-    /Bundler\.require\(\:default, \:assets, Rails\.env\)/
+    %r(Bundler\.require\(\:default, \:assets, Rails\.env\))
 end
 
 def suppress_helper_and_view_spec_generation

@@ -32,7 +32,7 @@ end
 def database_gem
   say "\n"
   comment "# Set preferred database to postgres"
-  gsub_file 'Gemfile', /gem 'sqlite3'\n/, "gem 'pg', '~> 0.14.1'\n"
+  gsub_file 'Gemfile', %r(gem 'sqlite3'\n), "gem 'pg', '~> 0.14.1'\n"
 end
 
 def development_only_gems

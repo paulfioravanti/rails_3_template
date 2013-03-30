@@ -6,7 +6,7 @@ def customize_application_css
   comment "# Substitute out require_tree in favour of manual ordered requiring"
   comment "# of CSS files in application.css.scss"
   gsub_file 'app/assets/stylesheets/application.css.scss',
-            /\s\*\= require_tree \.\n/, ''
+            %r(\s\*\= require_tree \.\n), ''
   comment "# Add reference to Bootstrap and overrides CSS file in application.css.scss"
   append_to_file 'app/assets/stylesheets/application.css.scss',
                  "@import \"bootstrap_and_overrides.css.scss\";"
