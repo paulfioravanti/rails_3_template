@@ -15,9 +15,9 @@ def set_ruby_version_and_app_gemset_in_rvm_env
   create_file '.ruby-version', "#{current_ruby}"
   create_file ".ruby-gemset", "#{app_name}"
 
-  # Using a newly created gemset can't be done through just calling 'run ...'
-  # command, so we need to get the RVM environment, create, use,
-  # and install gems in the new gemset from there.
+  # Using a newly created gemset can't be done through just calling a
+  # "run 'rvm gemset use app_name'" command, so we need to get the RVM
+  # environment, create, use, and install gems in the new gemset from there.
   require 'rvm'
   env = RVM::Environment.new(current_ruby)
 

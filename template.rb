@@ -1,16 +1,18 @@
 ## Before using this generator:
 # $ rvm use 2.0.0
 
-local_template = "rails_template/template.rb"
-remote_template = "https://raw.github.com/paulfioravanti/"\
+local_location = "rails_template/template.rb"
+remote_location = "https://raw.github.com/paulfioravanti/"\
                   "rails_template/master/template.rb"
 
-# Determine which template to use based on command line -m argument
-if ARGV[2] == remote_template
+# Determine which template to use based on parameter given in generator
+# rails new my_app -m <template>
+template_path = ARGV[2]
+if template_path == remote_location
   define_singleton_method :repo_root do
     'https://raw.github.com/paulfioravanti/rails_template/master'
   end
-elsif ARGV[2] == local_template
+elsif template_path == local_location
   define_singleton_method :repo_root do
     "#{Dir.pwd}/../rails_template"
   end
