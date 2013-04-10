@@ -44,7 +44,7 @@ def development_only_gems
     ### For html/erb to haml parsing; required by HAML
     gem 'html2haml', '~> 1.0.1'
     gem 'hpricot', '~> 0.8.6'
-    gem 'ruby_parser', '~> 3.1.2'
+    gem 'ruby_parser', '~> 3.1.3'
     # Security checking
     gem 'brakeman', '~> 1.9.5'
     ### Code quality gems
