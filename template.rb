@@ -47,7 +47,7 @@ apply recipe("rvm")
 update_rvm
 create_rvm_bundler_integration
 set_rvm_ruby_version
-set_rvm_gemset
+# set_rvm_gemset
 
 heading "Edit Environment Files" ###############################################
 apply recipe("environment")
