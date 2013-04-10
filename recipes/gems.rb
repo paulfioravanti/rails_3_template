@@ -4,7 +4,7 @@ def universal_gems
   gem 'will_paginate', '~> 3.0.4'
   gem 'bootstrap-will_paginate', '~> 0.0.9'
   gem 'simple_form', '~> 2.0.4'
-  gem 'rails-timeago', '~> 2.2.0'
+  gem 'rails-timeago', '~> 2.2.2'
   # Markdown
   gem 'rdiscount', '~> 2.0.7.1'
   # For creating encrypted hashes in has_secure_password
@@ -32,7 +32,7 @@ end
 def database_gem
   say "\n"
   comment "# Set preferred database to postgres"
-  gsub_file 'Gemfile', %r(gem 'sqlite3'\n), "gem 'pg', '~> 0.14.1'\n"
+  gsub_file 'Gemfile', %r(gem 'sqlite3'\n), "gem 'pg', '~> 0.15.1'\n"
 end
 
 def development_only_gems
@@ -46,19 +46,19 @@ def development_only_gems
     gem 'hpricot', '~> 0.8.6'
     gem 'ruby_parser', '~> 3.1.2'
     # Security checking
-    gem 'brakeman', '~> 1.9.4'
+    gem 'brakeman', '~> 1.9.5'
     ### Code quality gems
     gem 'reek', '~> 1.3.1'
     gem 'rails_best_practices', '~> 1.13.4'
     # Query optimization monitoring
-    gem 'bullet', '~> 4.4.0'
+    gem 'bullet', '~> 4.5.0'
     # Debugging information
     gem 'rails-footnotes', '~> 3.7.9'
     # Better error pages
     gem 'better_errors', '~> 0.7.2'
     gem 'binding_of_caller', '~> 0.7.1'
     # Gem for RailsPanel Chrome extension
-    gem 'meta_request', '~> 0.2.2'
+    gem 'meta_request', '~> 0.2.3'
   end
 end
 
@@ -68,7 +68,7 @@ def development_and_test_gems
   gem_group :development, :test do
     gem 'rspec-rails', '~> 2.13.0'
     # for autotesting with rspec
-    gem 'guard-rspec', '~> 2.5.1'
+    gem 'guard-rspec', '~> 2.5.2'
     # Prettier RSpec output
     gem 'fuubar', '~> 1.1.0'
     # Use factories instead of ActiveRecord objects
@@ -76,7 +76,7 @@ def development_and_test_gems
     # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
     # For deploying from Travis worker and generating
     # Figaro-based Heroku env variables
-    gem 'heroku', '~> 2.35.0'
+    gem 'heroku', '~> 2.37.2'
   end
 end
 
@@ -87,8 +87,8 @@ def test_only_gems
     # For fake example users with “realistic” names/emails
     gem 'faker', '~> 1.1.2'
     # Helps in testing by simulating how a real user would use app
-    gem 'capybara', '~> 2.0.2'
-    gem 'shoulda-matchers', '~> 1.5.2'
+    gem 'capybara', '~> 2.1.0'
+    gem 'shoulda-matchers', '~> 2.0.0'
     # gem 'shoulda-matchers', '1.5.0' # currently has Mocha dependency issues
     # Cucumber for user stories and db cleaner utility below
     gem 'cucumber-rails', '~> 1.3.1', require: false
@@ -101,7 +101,7 @@ def test_only_gems
     gem 'launchy', '~> 2.2.0'
     ### Code coverage reports
     gem 'simplecov', '~> 0.7.1', require: false
-    gem 'coveralls', '~> 0.6.2', require: false
+    gem 'coveralls', '~> 0.6.5', require: false
     # Performance testing  ## Broken in Ruby 2.0.0
     # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
     # Test other databases on Travis CI if needed
