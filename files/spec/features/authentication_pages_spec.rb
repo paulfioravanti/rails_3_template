@@ -13,7 +13,7 @@ describe "Authentication on UI" do
     before { visit signin_path }
 
     it { should have_selector('h1', text: heading) }
-    its(:source) { should have_selector('title', text: page_title) }
+    it { should have_title(page_title) }
   end
 
   describe "signin" do
@@ -24,7 +24,7 @@ describe "Authentication on UI" do
 
     before { visit signin_path }
 
-    its(:source) { should have_selector('title', text: page_title) }
+    it { should have_title(page_title) }
     it { should_not have_link(signout, href: signout_path) }
 
     context "with invalid information" do
@@ -32,7 +32,7 @@ describe "Authentication on UI" do
 
       before { click_button signin }
 
-      its(:source) { should have_selector('title', text: page_title) }
+      it { should have_title(page_title) }
       it { should have_alert_message('error', invalid) }
 
       context "after visiting another page" do
@@ -50,7 +50,7 @@ describe "Authentication on UI" do
       before { sign_in_through_ui(user) }
 
       it { should have_alert_message('success', successful_signin) }
-      its(:source) { should have_selector('h1', text: heading) }
+      it { should have_selector('h1', text: heading) }
       it { should have_link(signout, href: signout_path) }
       it { should_not have_link(signin, href: signin_path) }
 

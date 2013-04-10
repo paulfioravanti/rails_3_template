@@ -6,7 +6,7 @@ describe "User Pages on UI" do
 
   shared_examples_for "a user page" do
     it { should have_selector('h1', text: heading) }
-    its(:source) { should have_selector('title', text: page_title) }
+    it { should have_title(page_title) }
   end
 
   # I18n.available_locales.each do |locale|
@@ -58,7 +58,7 @@ describe "User Pages on UI" do
 
         # Redirect from registration page to signed in home page
         it { should have_alert_message('success', successful_registration) }
-        its(:source) { should have_selector('h1', text: heading) }
+        it { should have_selector('h1', text: heading) }
         it { should have_link signout }
       end
 

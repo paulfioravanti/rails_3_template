@@ -6,11 +6,11 @@ describe "Pages on UI" do
 
   shared_examples_for "a static page" do
     it { should have_selector('h1', text: heading) }
-    its(:source) { should have_selector('title', text: page_title) }
+    it { should have_title(page_title) }
   end
 
   shared_examples_for "a layout link" do
-    its(:source) { should have_selector('title', text: page_title) }
+    it { should have_title(page_title) }
   end
 
   # I18n.available_locales.each do |locale|
@@ -36,7 +36,7 @@ describe "Pages on UI" do
     before { visit root_path }
 
     it_should_behave_like "a static page"
-    its(:source) { should_not have_selector('title', text: "| #{home}") }
+    it { should_not have_title("| #{home}") }
   end
   # end
 end
