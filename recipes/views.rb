@@ -4,7 +4,7 @@ def customize_application_view
       "app/views/layouts/application.html.haml"
   remove_file 'app/views/layouts/application.html.erb'
 
-  modern_hash_syntax 'app/views/layouts/application.html.haml'
+  modernize_hash_syntax 'app/views/layouts/application.html.haml'
 
   comment "# Change html header to html5"
   gsub_file 'app/views/layouts/application.html.haml',

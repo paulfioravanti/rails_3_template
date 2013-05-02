@@ -55,7 +55,7 @@ def remove_blank_lines(filename)
   gsub_file filename, %r((?m)^(?<!\w\n$)\n(?!\w+)), ''
 end
 
-def modern_hash_syntax(filename)
+def modernize_hash_syntax(filename)
   comment "# Change hashes to modern syntax"
   gsub_file filename, %r(([^\w^:]):([\w\d_]+)\s*=>), '\1\2:'
 end

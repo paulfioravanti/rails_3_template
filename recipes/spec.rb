@@ -34,7 +34,7 @@ def customize_guard_file
   gsub_file 'Guardfile',
             %r(guard 'rspec' do),
             "guard 'rspec', version: 2, all_after_pass: false, cli: '--drb' do"
-  modern_hash_syntax 'Guardfile'
+  modernize_hash_syntax 'Guardfile'
 end
 
 def create_initial_specs

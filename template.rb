@@ -35,7 +35,7 @@ apply recipe("gemfile")
 change_double_to_single_quotes 'Gemfile'
 remove_comments 'Gemfile'
 remove_blank_lines 'Gemfile'
-modern_hash_syntax 'Gemfile'
+modernize_hash_syntax 'Gemfile'
 add_explicit_ruby_version
 change_rubygems_source
 insert_line_breaks_before_groups

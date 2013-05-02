@@ -41,7 +41,7 @@ def simple_form_initializer
   comment "# Create simple_form initializer file,"
   comment "# change its hashes to modern syntax, and remove extraneous blank lines"
   generate 'simple_form:install --bootstrap'
-  modern_hash_syntax 'config/initializers/simple_form.rb'
+  modernize_hash_syntax 'config/initializers/simple_form.rb'
   gsub_file 'config/initializers/simple_form.rb',
             %r(development\?\nend\n)
             "development\?\nend"
