@@ -1,20 +1,19 @@
 ## Before using this generator:
 # $ rvm use 2.0.0
 
-local_location = "rails_template/template.rb"
-remote_location = "https://raw.github.com/paulfioravanti/"\
-                  "rails_template/master/template.rb"
-
 # Determine which template to use based on parameter given in generator
-# rails new my_app -m <template>
-template_path = ARGV[2]
-if template_path == remote_location
+# rails new my_app -m <template>.  Supports github repo and local repo.
+template_path = ARGV[2].dup
+if template_path =~ %r(\Ahttps://raw.github.com)
+  github_template = template_path.chomp("/template.rb")
   define_singleton_method :repo_root do
-    'https://raw.github.com/paulfioravanti/rails_template/master'
+    github_template
   end
-elsif template_path == local_location
+else
+  local_template =
+    template_path.insert(0, "#{Dir.pwd}/../").chomp("/template.rb")
   define_singleton_method :repo_root do
-    "#{Dir.pwd}/../rails_template"
+    local_template
   end
 end
 
