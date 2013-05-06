@@ -5,16 +5,13 @@
 # rails new my_app -m <template>.  Supports github repo and local repo.
 template_path = ARGV[2].dup
 if template_path =~ %r(\Ahttps://raw.github.com)
-  github_template = template_path.chomp("/template.rb")
-  define_singleton_method :repo_root do
-    github_template
-  end
+  path = template_path.chomp("/template.rb")
 else
-  local_template =
-    template_path.insert(0, "#{Dir.pwd}/../").chomp("/template.rb")
-  define_singleton_method :repo_root do
-    local_template
-  end
+  path = template_path.insert(0, "#{Dir.pwd}/../").chomp("/template.rb")
+end
+
+define_singleton_method :repo_root do
+  path
 end
 
 apply "#{repo_root}/utilities.rb"
