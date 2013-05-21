@@ -1,6 +1,6 @@
 # Rails Template
 
-This Rails template was written to make the process of starting a very basic Rails app easier, and make my personal Rails app bootstrap instruction guide obsolete.  I disliked having to spend the time to repeat the same old steps manually every time I began a new application, so this is my attempt at automating that process.  
+This Rails 3 template was written to make the process of starting a very basic Rails app easier, and make my personal Rails app bootstrap instruction guide obsolete.  I disliked having to spend the time to repeat the same old steps manually every time I began a new application, so this is my attempt at automating that process.  
 
 It's influenced heavily by, and owes a debt of gratitude to: 
 - [Rails Apps Composer](https://github.com/RailsApps/rails_apps_composer)
