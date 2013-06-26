@@ -1,4 +1,6 @@
-# Rails Template
+# Rails 3 Template
+
+[Rails 4 version of this template](https://github.com/paulfioravanti/rails_4_template)
 
 This Rails 3 template was written to make the process of starting a very basic Rails app easier, and make my personal Rails app bootstrap instruction guide obsolete.  I disliked having to spend the time to repeat the same old steps manually every time I began a new application, so this is my attempt at automating that process.  
 
@@ -25,7 +27,7 @@ This template was created to run using [RVM](https://rvm.io/) with:
 
 ## Usage
 
-    $ rails new my_app -m https://raw.github.com/paulfioravanti/rails_template/master/template.rb
+    $ rails new my_app -m https://raw.github.com/paulfioravanti/rails_3_template/master/template.rb
 
 I originally had issues with OpenSSL when attempting to reference the template, but [this guide](http://railsapps.github.com/openssl-certificate-verify-failed.html) on The RailsApps Project fixed it. 
 
