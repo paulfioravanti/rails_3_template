@@ -27,7 +27,7 @@ This template was created to run using [RVM](https://rvm.io/) with:
 
 ## Usage
 
-    $ rails new my_app -m https://raw.github.com/paulfioravanti/rails_3_template/master/template.rb
+    $ rails _3.2.13_ new my_app -m https://raw.github.com/paulfioravanti/rails_3_template/master/template.rb
 
 I originally had issues with OpenSSL when attempting to reference the template, but [this guide](http://railsapps.github.com/openssl-certificate-verify-failed.html) on The RailsApps Project fixed it. 
 
