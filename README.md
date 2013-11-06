@@ -38,3 +38,6 @@ I originally had issues with OpenSSL when attempting to reference the template, 
 </a>
 
 [![endorse](http://api.coderwall.com/pfioravanti/endorsecount.png)](http://coderwall.com/pfioravanti)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paulfioravanti/rails_3_template/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
